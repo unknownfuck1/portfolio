@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORtfolio WEBSITE</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="lol"> Prabal</a>
+        <nav id="a"> 
+            <a class="noob" href="#"> Home</a>
+            <a href="#"> Services</a>
+            <a href="#"> Skills</a>
+            <a href="#"> Education</a>
+            <a href="#"> Experience</a>
+            <a href="#"> Contact</a>
+            </nav>
+    </header>
+            <section class="home">
+                <div class="home.img">
+                    <img src="image.jpg" alt="" id="fuck">
+                </div>
+                <div class="home-content">
+                    <h1>Hi It's <span>Prabal</span></h1>
+                    <h3 class="typing-text">I'm a  <span></span></h3>
+                    <p> Front end web developer. Currently making websites to enhance my skills.
+                        And learning back end also with databases like SQL, MONGODB etc.
+                    </p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+           
+            <div class="social-icons">
+                <a href= "https://www.linkedin.com/in/prabal-singh-9aa698330/"      href="https://www.linkedin.com" target="_blank" class="icon linkedin" aria-label="LinkedIn">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" alt="LinkedIn" />
+                </a>
+                <a href="https://twitter.com" target="_blank" class="icon twitter" aria-label="Twitter">
+                  <img src="https://imgs.search.brave.com/H-lXOebl7VFOQzUOQniGyJJWNi_V_8pcviP4EPjEuvI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZs/YXRpY29uLmNvbS8x/MjgvNTk2OS81OTY5/MDIwLnBuZw" alt="Twitter" />
+                </a>
+                <a href="https://github.com/unknownfuck1"  href="https://github.com" target="_blank" class="icon github" aria-label="GitHub">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" />
+                </a>
+                
+                </a>
+              </div>
+              <div>
+                <br>
+                <br>
+                <br>
+              <a  href="https://t.me/TXCRAMBO" class="btn">Hire me   </a>
+</div>
+            </section>
+
+</body>
+<script>
+    // Disable Right-Click
+    document.addEventListener('contextmenu', (event) => event.preventDefault());
+
+// Disable Dragging of Elements
+document.addEventListener('dragstart', (event) => event.preventDefault());
+
+// Disable Keyboard Shortcuts
+document.addEventListener('keydown', (event) => {
+    if (
+        event.key === 'F12' || // F12 key
+        (event.ctrlKey && event.shiftKey && event.key === 'I') || // Ctrl+Shift+I
+        (event.ctrlKey && event.shiftKey && event.key === 'J') || // Ctrl+Shift+J
+        (event.ctrlKey && event.key === 'U') || // Ctrl+U
+        (event.ctrlKey && event.key === 'S') || // Ctrl+S
+        (event.ctrlKey && event.key === 'P') // Ctrl+P (Print)
+    ) {
+        event.preventDefault();
+        alert('TERI BASKI NA HAI COPY KRNE KI.');
+    }
+});
+
+// Detect Developer Tools Opened via Console or Window Resize
+(function detectDevTools() {
+    const threshold = 160; // Change threshold to detect window changes
+    let devToolsOpen = false;
+
+    const checkDevTools = () => {
+        const widthDifference = window.outerWidth - window.innerWidth > threshold;
+        const heightDifference = window.outerHeight - window.innerHeight > threshold;
+
+        if (widthDifference || heightDifference) {
+            devToolsOpen = true;
+            alert('Developer Tools detected! Reloading...');
+            window.location.reload(); // Reload page if detected
+        }
+    };
+
+    const checkConsole = () => {
+        const start = new Date();
+        console.log('%c', 'font-size:4000px'); // Fake console log
+        const end = new Date();
+        if (end - start > 100) {
+            devToolsOpen = true;
+            alert('Developer Tools detected! Reloading...');
+            window.location.reload(); // Reload page if console interaction detected
+        }
+    };
+
+    // Continuously check for Developer Tools
+    setInterval(() => {
+        checkDevTools();
+        checkConsole();
+    }, 500); // Check every 500ms
+})();
+
+// Fake Protection via Debugger
+(function preventDebugger() {
+    const blockDebugger = () => {
+        try {
+            (function block() {}.constructor('debugger')());
+        } catch (e) {
+            setTimeout(blockDebugger, 100);
+        }
+    };
+    blockDebugger();
+})();
+
+   // Dynamically create and display content via JavaScript
+   document.write('<h1>Welcome to My Encrypted Page</h1><p>This content is loaded securely and dynamically.</p>');
+   
+
+
+
+
+   let f12Blocked = false;
+        
+        function preventDevTools(event) {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+                if (!f12Blocked) {
+                    f12Blocked = true;
+                    setTimeout(() => { f12Blocked = false; }, 2000); // Reset after 2 seconds
+                    event.preventDefault(); // Block F12 and Ctrl+Shift+I
+                    alert('Developer Tools are disabled. Please wait a few seconds to try again.');
+                }
+            }
+        }
+
+        document.addEventListener('keydown', preventDevTools);
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Prevent right-click
+        });
+
+
+
+        //1st
+        async function encryptHTML(content, key) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(content);  // Convert content to Uint8Array
+    const keyMaterial = await crypto.subtle.importKey(
+        "raw",
+        encoder.encode(key),
+        { name: "AES-GCM", length: 256 }, // AES-GCM encryption
+        false,
+        ["encrypt"]
+    );
+    const iv = crypto.getRandomValues(new Uint8Array(12));  // Random initialization vector (IV)
+    const encryptedContent = await crypto.subtle.encrypt(
+        { name: "AES-GCM", iv },
+        keyMaterial,
+        data
+    );
+    return { encryptedContent, iv };
+}
+
+//3rd
+
+const encryptionKey = "your-secret-encryption-key";  // Store this securely
+        const plainHTML = "<h1>Welcome to My Encrypted Website</h1><p>This content is encrypted.</p>";
+
+        async function loadEncryptedContent() {
+            const { encryptedContent, iv } = await encryptHTML(plainHTML, encryptionKey);
+            const response = await fetch("/path-to-encrypted-data", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ encryptedContent, iv })
+            });
+
+            const { encryptedData, iv: receivedIv } = await response.json();
+            const decryptedHTML = await decryptHTML(encryptedData, encryptionKey, receivedIv);
+            document.getElementById("encrypted-content").innerHTML = decryptedHTML;
+        }
+
+        loadEncryptedContent();
+
+        var WebpackObfuscator = require('webpack-obfuscator');
+
+   </script>
+</html>
